@@ -2,11 +2,41 @@ import {
   PrismicRichText as BasePrismicRichText,
   type PrismicRichTextProps,
   type JSXMapSerializer,
-} from "@prismicio/react";
-import { PrismicNextLink } from "@prismicio/next";
+} from "@prismicio/react"
+import { PrismicNextLink } from "@prismicio/next"
 
-import { Heading } from "./Heading";
-
+import { Heading } from "./Heading"
+/**
+ * A custom wrapper component for rendering Prismic rich text content with predefined styles and components.
+ *
+ * This component extends the `PrismicRichText` component from `@prismicio/react` and provides default
+ * styling and components for various rich text elements such as headings, paragraphs, lists, and more.
+ *
+ * @param {PrismicRichTextProps} props - The props for the PrismicRichText component.
+ * @param {JSXMapSerializer} [props.components] - Optional custom components to override the default components.
+ *
+ * @returns {JSX.Element} The rendered Prismic rich text content with applied styles and components.
+ *
+ * @example
+ * ```tsx
+ * import { PrismicRichText } from './PrismicRichText';
+ *
+ * const myRichText = [
+ *   {
+ *     type: 'heading1',
+ *     text: 'Hello World',
+ *     spans: [],
+ *   },
+ *   {
+ *     type: 'paragraph',
+ *     text: 'This is a paragraph.',
+ *     spans: [],
+ *   },
+ * ];
+ *
+ * <PrismicRichText field={myRichText} />
+ * ```
+ */
 const defaultComponents: JSXMapSerializer = {
   heading1: ({ children }) => (
     <Heading as="h1" className="mb-7 mt-12 first:mt-0 last:mb-0">
@@ -52,7 +82,7 @@ const defaultComponents: JSXMapSerializer = {
       {children}
     </PrismicNextLink>
   ),
-};
+}
 
 export function PrismicRichText({
   components,
@@ -63,5 +93,5 @@ export function PrismicRichText({
       components={{ ...defaultComponents, ...components }}
       {...props}
     />
-  );
+  )
 }
