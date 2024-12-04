@@ -25,7 +25,7 @@ export function Bounded({
   collapsible = true,
   className,
   children,
-}: BoundedProps) {
+}: BoundedProps): JSX.Element {
   return (
     <Comp
       data-collapsible={collapsible}
