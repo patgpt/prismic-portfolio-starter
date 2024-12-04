@@ -1,65 +1,45 @@
-# Prismic + Next.js Multi-Page Starter
+# Prismic Portfolio Starter
 
-Want to see an example of a multi-page website using [Prismic][prismic] and [Next.js][nextjs]? Look no further! This project provides all the code you need for a personal website with a homepage, information pages, and navigation.
+Welcome to the **Prismic Portfolio Starter** project! This is an easy-to-use and customizable portfolio starter built with **Next.js 15**, **Tailwind CSS v4**, **Tailwind Typography**, and **Framer Motion**. The goal is to provide a **modern, scalable portfolio template** that developers can effortlessly customize and use to showcase their work.
 
-- **Demo**: [Open live demo][live-demo]
-- **Learn more about Prismic and Next.js**: [Prismic Next.js Documentation][prismic-docs]
+## About This Project
 
-&nbsp;
+This starter was initially built as **my personal portfolio**, but I've designed it from the ground up to be reusable for **other developers**. It aims to be a plug-and-play solution for developers to create a **beautiful, performant portfolio** with minimal effort.
 
-<img src="https://user-images.githubusercontent.com/8601064/166617932-eaaa1643-f086-4909-9868-56234f8da98d.png" alt="Screenshots of the site seen on deskop and mobile browsers" />
+### Key Features
 
-&nbsp;
+- **Prismic as the CMS** for easy content management.
+- **Tailwind CSS** for styling, ensuring a highly responsive and modern UI.
+- **Next.js 15** using the App Router for the latest SSR and SSG features.
+- **Framer Motion** for sleek animations that bring your portfolio to life.
+- **Modular Content Types & Slices**: Easily adjust content and layouts using Prismic's powerful custom types and slices.
+- **Accessibility (a11y) and Internationalization (i18n)**: Fully accessible, with features such as semantic HTML, ARIA roles, keyboard navigation, and screen reader support. Internationalization support includes language switchers and easy content localization, making it adaptable for multiple languages.
+- **Industry Best Practices**: Follows all best practices and industry standards for modern web development.
 
-## 🚀 Quick Start
+### Who Is This For?
 
-To start a new project using this starter, run the following commands in your terminal:
+- Developers who want to showcase their projects, skills, and experience in a **professional and visually engaging** way.
+- Anyone looking for a **modern JAMstack portfolio** that is **fast, optimized, future-friendly, and a great learning resource**.
 
-```sh
-npx degit prismicio-community/nextjs-starter-prismic-multi-page your-project-name
-cd your-project-name
-npx @slicemachine/init@latest
-```
+### Getting Started
 
-The commands will do the following:
+This project uses **modern React and Next.js features** such as React hooks, server components, and static site generation (SSG), and aims to keep things **simple** for the community. If you have ADHD or get easily overwhelmed (like me!), the project setup and documentation have been organized to be **as focused and straightforward as possible**. Follow the steps and tasks clearly outlined to make your portfolio live, one step at a time.
 
-1. Start a new Next.js project using this starter.
-2. Ask you to log in to Prismic or [create an account][prismic-sign-up].
-3. Create a new Prismic content repository with sample content.
+### Technologies Used
 
-When you're ready to start your project, run the following command:
+- **Next.js 15** (App Router)
+- **Tailwind CSS v4** & **Tailwind Typography** for elegant styling
+- **Prismic** for managing content in a scalable way
+- **Framer Motion** for delightful animations
 
-```sh
-npm run dev
-```
+### Contributions
 
-## Documentation
+Contributions are welcome! If you'd like to add features, suggest improvements, or use this project as a base for your own portfolio, feel free to **fork the repo** and make it your own. For more details, please refer to the [Contribution Guide](CONTRIBUTING.md). Let's build a **developer community** that shares knowledge and makes showcasing our work **fun and easy**.
 
-To learn how to work with your new project, [**see this starter's docs**][starter-docs].
+### License
 
-To learn more about working with Prismic, [**see the Prismic docs**][prismic-docs].
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## License
+---
 
-```
-Copyright 2013-2022 Prismic <contact@prismic.io> (https://prismic.io)
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-```
-
-[prismic]: https://prismic.io/
-[prismic-docs]: https://prismic.io/docs/technologies/nextjs
-[prismic-sign-up]: https://prismic.io/dashboard/signup
-[nextjs]: https://nextjs.org/
-[starter-docs]: ./docs/README.md
-[live-demo]: https://nextjs-starter-prismic-multi-page.vercel.app/
+Ready to get started? Clone the repository and let's build something awesome together!
