@@ -19,7 +19,7 @@ export default async function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="overflow-x-hidden antialiased">
+      <body className="overflow-x-hidden antialiased h-screen">
         <Header />
         {children}
         <PrismicPreview repositoryName={repositoryName} />

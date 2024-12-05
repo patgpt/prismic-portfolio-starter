@@ -1,4 +1,8 @@
-module.exports = {
+import type { Config } from 'tailwindcss'
+import typography from '@tailwindcss/typography'
+import aspectRatio from '@tailwindcss/aspect-ratio'
+import daisyUI from 'daisyui'
+const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -11,5 +15,7 @@ module.exports = {
     },
     extend: {},
   },
-  plugins: [require("@tailwindcss/aspect-ratio")],
-};
+  plugins: [typography, aspectRatio, daisyUI],
+}
+
+export default config
