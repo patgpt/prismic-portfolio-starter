@@ -1,12 +1,12 @@
-import * as prismic from "@prismicio/client";
-import * as prismicNext from "@prismicio/next";
-import sm from "../slicemachine.config.json";
+import * as prismic from "@prismicio/client"
+import * as prismicNext from "@prismicio/next"
+import sm from "../slicemachine.config.json"
 
 /**
  * The project's Prismic repository name.
  */
 export const repositoryName =
-  process.env.NEXT_PUBLIC_PRISMIC_ENVIRONMENT || sm.repositoryName;
+  process.env.NEXT_PUBLIC_PRISMIC_ENVIRONMENT || sm.repositoryName
 
 /**
  * The project's Prismic Route Resolvers. This list determines a Prismic document's URL.
@@ -16,7 +16,11 @@ const routes: prismic.ClientConfig["routes"] = [
   { type: "page", path: "/:uid" },
   { type: "settings", path: "/" },
   { type: "navigation", path: "/" },
-];
+  { type: "experience", path: "/experience" },
+  // { type: "experience_entry", path: "/experience/:uid" },
+  // { type: "blog", path: "/blog/:uid" },
+  // { type: "blog_post", path: "/blog/:uid" },
+]
 
 /**
  * Creates a Prismic client for the project's repository. The client is used to
@@ -32,9 +36,9 @@ export const createClient = (config: prismicNext.CreateClientConfig = {}) => {
         ? { next: { tags: ["prismic"] }, cache: "force-cache" }
         : { next: { revalidate: 5 } },
     ...config,
-  });
+  })
 
-  prismicNext.enableAutoPreviews({ client });
+  prismicNext.enableAutoPreviews({ client })
 
-  return client;
-};
+  return client
+}
