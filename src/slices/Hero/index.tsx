@@ -1,6 +1,8 @@
+  
 import { type Content, isFilled } from "@prismicio/client";
 import { PrismicNextLink, PrismicNextImage } from "@prismicio/next";
 import type { SliceComponentProps, JSXMapSerializer } from "@prismicio/react";
+import { Parallax } from "@/components/Parallax";
 
 import { Bounded } from "@/components/Bounded";
 import { Heading } from "@/components/Heading";
@@ -20,14 +22,16 @@ const Hero = ({ slice }: HeroProps) => {
   const backgroundImage = slice.primary.backgroundImage;
 
   return (
-    <section className="relative bg-slate-900 text-white">
+    <section className="relative overflow-hidden bg-slate-900 text-white">
       {isFilled.image(backgroundImage) && (
-        <PrismicNextImage
-          field={backgroundImage}
-          alt=""
-          fill={true}
-          className="pointer-events-none select-none object-cover opacity-40"
-        />
+        <Parallax>
+          <PrismicNextImage
+            field={backgroundImage}
+            alt=""
+            fill={true}
+            className="pointer-events-none select-none object-cover w-full h-full opacity-50"
+          />
+        </Parallax>
       )}
       <Bounded yPadding="lg" className="relative">
         <div className="grid justify-items-center gap-8">

@@ -1,0 +1,126 @@
+{
+  "format": "page",
+  "id": "experience_entry",
+  "label": "Experience Entry",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "UID"
+        }
+      },
+      "company_name": {
+        "type": "Text",
+        "config": {
+          "label": "Company Name",
+          "placeholder": "Company Name"
+        }
+      },
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "Position Title",
+          "placeholder": "Position Title"
+        }
+      },
+      "date_start": {
+        "type": "Date",
+        "config": {
+          "label": "Date Start",
+          "placeholder": "Employment start date"
+        }
+      },
+      "date_end": {
+        "type": "Date",
+        "config": {
+          "label": "Date End",
+          "placeholder": "Employment end date"
+        }
+      },
+      "company_logo": {
+        "type": "Image",
+        "config": {
+          "label": "Company Logo",
+          "constraint": {
+            "width": 400,
+            "height": 400
+          },
+          "thumbnails": []
+        }
+      },
+      "parent": {
+        "type": "Link",
+        "config": {
+          "label": "Parent",
+          "select": "document",
+          "customtypes": ["experience"]
+        }
+      },
+      "short_description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Short Description",
+          "placeholder": "Short Description",
+          "allowTargetBlank": true,
+          "multi": "paragraph,strong,em"
+        }
+      },
+      "job_description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Job Description",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "url": {
+        "type": "Link",
+        "config": {
+          "label": "URL",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "select": null,
+          "allowText": true
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {}
+        }
+      }
+    },
+    "SEO & Metadata": {
+      "meta_title": {
+        "config": {
+          "label": "Meta Title",
+          "placeholder": "A title of the page used for social media and search engines"
+        },
+        "type": "Text"
+      },
+      "meta_description": {
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "A brief summary of the page"
+        },
+        "type": "Text"
+      },
+      "meta_image": {
+        "config": {
+          "constraint": {
+            "height": 1260,
+            "width": 2400
+          },
+          "label": "Meta Image",
+          "thumbnails": []
+        },
+        "type": "Image"
+      }
+    }
+  }
+}
