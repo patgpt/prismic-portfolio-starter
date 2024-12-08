@@ -17,8 +17,8 @@ const routes: prismic.ClientConfig["routes"] = [
   { type: "settings", path: "/" },
   { type: "navigation", path: "/" },
   { type: "page", path: "/experience" },
-  { type: "experience", path: "/experience/:uid" },
-];
+  { type: "experience_entry", path: "/experience/:uid" },
+]
 
 /**
  * Creates a Prismic client for the project's repository. The client is used to

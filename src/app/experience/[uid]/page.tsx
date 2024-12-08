@@ -1,40 +1,56 @@
-import { Metadata } from "next";
-import { notFound } from "next/navigation";
-import { SliceZone } from "@prismicio/react";
+import { Metadata } from "next"
+import { notFound } from "next/navigation"
+import { PrismicImage, SliceZone } from "@prismicio/react"
 
-import { createClient } from "@/prismicio";
-import { components } from "@/slices";
+import { createClient } from "@/prismicio"
+import { components } from "@/slices"
+import { PrismicRichText } from "@/components/PrismicRichText"
 
-type Params = { uid: string };
+type Params = { uid: string }
 
 export default async function Page({ params }: { params: Promise<Params> }) {
-  const { uid } = await params;
-  const client = createClient();
-  const page = await client.getByUID("experience", uid).catch(() => notFound());
+  const { uid } = await params
+  const client = createClient()
+  const page = await client
+    .getByUID("experience_entry", uid)
+    .catch(() => notFound())
 
-  return <SliceZone slices={page.data.slices} components={components} />;
+  return (
+    <div className="container prose prose-xl mx-auto">
+      <h1>{page.data.title}</h1>
+      <PrismicImage field={page.data.company_logo} />
+      <h3> {page.data.company_name}</h3>
+      <span className="text-pretty font-thin text-base-content/50">
+        From: {page.data.date_start} To: {page.data.date_end}
+      </span>
+      <PrismicRichText field={page.data.job_description} />
+      <SliceZone slices={page.data.slices} components={components} />
+    </div>
+  )
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<Params>;
+  params: Promise<Params>
 }): Promise<Metadata> {
-  const { uid } = await params;
-  const client = createClient();
-  const page = await client.getByUID("experience", uid).catch(() => notFound());
+  const { uid } = await params
+  const client = createClient()
+  const page = await client
+    .getByUID("experience_entry", uid)
+    .catch(() => notFound())
 
   return {
     title: page.data.meta_title,
     description: page.data.meta_description,
-  };
+  }
 }
 
 export async function generateStaticParams() {
-  const client = createClient();
-  const pages = await client.getAllByType("experience");
+  const client = createClient()
+  const pages = await client.getAllByType("experience_entry")
 
   return pages.map((page) => {
-    return { uid: page.uid };
-  });
+    return { uid: page.uid }
+  })
 }
