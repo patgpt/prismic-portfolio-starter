@@ -1,0 +1,73 @@
+{
+  "id": "tag_cloud",
+  "type": "SharedSlice",
+  "name": "TagCloud",
+  "description": "TagCloud",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "tags": {
+          "type": "Group",
+          "config": {
+            "label": "Tags",
+            "repeat": true,
+            "fields": {
+              "tags": {
+                "type": "Select",
+                "config": {
+                  "label": "Tags",
+                  "placeholder": "",
+                  "options": [
+                    "Adobe XD",
+                    "Figma",
+                    "Adobe Target",
+                    "SEO",
+                    "a11y",
+                    "i18n",
+                    "Next.js",
+                    "Vue.js",
+                    "Javascript",
+                    "Typescript",
+                    "Dart",
+                    "Flutter",
+                    "WordPress",
+                    "Firebase",
+                    "Content Management",
+                    "Prismic",
+                    "Contentful",
+                    "React.js",
+                    "Optimizely",
+                    "Google Analytics",
+                    "Responsive Design",
+                    "Tailwind",
+                    "SASS",
+                    "CSS",
+                    "HTML",
+                    "AWS Amplify",
+                    "Google Cloud Platform",
+                    "Vercel",
+                    "Heroku"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

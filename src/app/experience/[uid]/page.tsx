@@ -16,17 +16,21 @@ export default async function Page({ params }: { params: Promise<Params> }) {
     .catch(() => notFound())
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl prose prose-sm sm:prose-base lg:prose-xl prose-headings:text-primary">
-      <h1 className="text-3xl sm:text-4xl lg:text-5xl mb-4 sm:mb-6 text-primary">{page.data.title}</h1>
+    <div className="container prose prose-sm mx-auto my-8 max-w-4xl p-4 sm:prose-base lg:prose-xl prose-headings:text-primary sm:px-6 lg:px-8">
+      <h1 className="mb-4 text-3xl text-primary sm:mb-6 sm:text-4xl lg:text-5xl">
+        {page.data.title}
+      </h1>
       <PrismicImage
-        className="rounded-lg shadow-md w-full max-w-sm mx-auto"
+        className="mx-auto w-full max-w-sm rounded-lg shadow-md"
         field={page.data.company_logo}
       />
-      <h3 className="text-xl sm:text-2xl mt-4 text-secondary"> {page.data.company_name}</h3>
-      <span className="text-pretty font-thin text-neutral-content text-sm sm:text-base block mb-4">
+      <h3 className="mt-4 text-xl text-secondary sm:text-2xl">
+        {page.data.company_name}
+      </h3>
+      <span className="mb-4 block text-pretty text-sm font-thin text-base-content/80 sm:text-base">
         From: {page.data.date_start} To: {page.data.date_end}
       </span>
-      <div className="mt-6 prose-p:text-neutral-content">
+      <div className="mt-6 prose-p:text-base-content prose-strong:text-base-content prose-em:text-base-content/90">
         <PrismicRichText field={page.data.job_description} />
       </div>
       <SliceZone slices={page.data.slices} components={components} />

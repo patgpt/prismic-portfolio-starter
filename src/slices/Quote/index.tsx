@@ -1,10 +1,10 @@
-import { type Content, isFilled } from "@prismicio/client";
-import { PrismicText, type SliceComponentProps } from "@prismicio/react";
-import clsx from "clsx";
+import { type Content, isFilled } from "@prismicio/client"
+import { PrismicText, type SliceComponentProps } from "@prismicio/react"
+import clsx from "clsx"
 
-import { Bounded } from "@/components/Bounded";
+import { Bounded } from "@/components/Bounded"
 
-type QuoteProps = SliceComponentProps<Content.QuoteSlice>;
+type QuoteProps = SliceComponentProps<Content.QuoteSlice>
 
 const Quote = ({ slice }: QuoteProps) => {
   return (
@@ -33,7 +33,7 @@ const Quote = ({ slice }: QuoteProps) => {
         </figure>
       )}
     </Bounded>
-  );
-};
+  )
+}
 
-export default Quote;
+export default Quote

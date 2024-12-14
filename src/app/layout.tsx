@@ -1,62 +1,46 @@
+import { PrismicPreview } from "@prismicio/next"
 import "./globals.css"
+import { Metadata } from "next"
 
-import { Inter } from "next/font/google"
-import { asText } from "@prismicio/client"
-import { PrismicText } from "@prismicio/react"
-import { PrismicNextLink, PrismicPreview } from "@prismicio/next"
+import { fontSans } from "@/app/fonts"
+import Footer from "@/components/Footer"
+import Header from "@/components/Header"
+import { repositoryName } from "@/prismicio"
+import { ThemeProvider } from "next-themes"
 
-import { createClient, repositoryName } from "@/prismicio"
-import { Bounded } from "@/components/Bounded"
-
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-inter",
-})
+export const metadata: Metadata = {
+  title: {
+    template: "%s | Patrick Kelly's Portfolio",
+    default: "Patrick's Portfolio",
+  },
+  description: "Patrick Kelly's portfolio website.",
+  icons: {
+    icon: "/favicon.ico", //import your favicon
+  },
+  metadataBase: new URL("https://your-domain.com"), // Update this URL
+}
 
 export default async function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html lang="en" className={inter.variable}>
-      <body className="overflow-x-hidden bg-gradient-to-tr from-primary/10 to-secondary/10 antialiased">
-        <Header />
-        {children}
-        <PrismicPreview repositoryName={repositoryName} />
+    <html lang="en" className={fontSans.variable} suppressHydrationWarning>
+      <body className="overflow-x-hidden bg-base-100 text-base-content antialiased">
+        <ThemeProvider
+          attribute="data-theme"
+          enableSystem={true}
+          defaultTheme="system"
+          enableColorScheme={true}
+          disableTransitionOnChange
+        >
+          <Header />
+          {children}
+          <Footer />
+          <PrismicPreview repositoryName={repositoryName} />
+        </ThemeProvider>
       </body>
     </html>
-  )
-}
-
-async function Header() {
-  const client = createClient()
-  const settings = await client.getSingle("settings")
-  const navigation = await client.getSingle("navigation")
-
-  return (
-    <Bounded as="header" yPadding="sm">
-      <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-3 leading-none">
-        <PrismicNextLink
-          href="/"
-          className="text-xl font-semibold tracking-tight"
-        >
-          <PrismicText field={settings.data.siteTitle} />
-        </PrismicNextLink>
-        <nav>
-          <ul className="flex flex-wrap gap-6 md:gap-10">
-            {navigation.data?.links.map((item) => (
-              <li
-                key={asText(item.label)}
-                className="font-semibold tracking-tight text-slate-800"
-              >
-                <PrismicNextLink field={item.link}>
-                  <PrismicText field={item.label} />
-                </PrismicNextLink>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </div>
-    </Bounded>
   )
 }

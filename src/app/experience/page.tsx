@@ -11,7 +11,7 @@ async function Page() {
   }
 
   return (
-    <div className={clsx("container", "mx-auto", "max-w-6xl", "p-8")}>
+    <div className={clsx("container", "mx-auto", "max-w-6xl", "p-8", "my-8")}>
       <div className="relative">
         <div
           className={clsx(

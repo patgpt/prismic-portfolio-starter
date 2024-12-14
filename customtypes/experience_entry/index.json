@@ -91,7 +91,11 @@
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {}
+          "choices": {
+            "tag_cloud": {
+              "type": "SharedSlice"
+            }
+          }
         }
       }
     },

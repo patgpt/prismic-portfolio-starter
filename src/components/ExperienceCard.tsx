@@ -7,7 +7,7 @@ import { PrismicNextLink } from "@prismicio/next"
 
 interface ExperienceCardProps {
   data: Content.ExperienceEntryDocument["data"]
-  uid: string
+  uid?: string | null
   index: number
 }
 
@@ -40,9 +40,7 @@ export function ExperienceCard({ data, uid, index }: ExperienceCardProps) {
 
   const titleClasses = clsx(
     // Mobile styles
-    "relative w-full pl-8",
-    // Desktop styles
-    "sm:absolute sm:w-[calc(50%-2rem)]",
+    "relative w-full pl-8 sm:absolute sm:w-[calc(50%-2rem)]",
     isEven
       ? "sm:left-[50%] sm:pl-8 sm:text-left"
       : "sm:right-[50%] sm:pr-8 sm:text-right",
