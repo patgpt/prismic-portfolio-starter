@@ -1,20 +1,17 @@
-import { type AnySlicePrimaryField, type Content, type ImageField, isFilled, type LinkField, type RichTextField } from "@prismicio/client"
-import { PrismicNextLink, PrismicNextImage } from "@prismicio/next"
-import type { SliceComponentProps, JSXMapSerializer } from "@prismicio/react"
 import { Parallax } from "@/components/Parallax"
-import { ReactNode } from 'react'
+import {
+  type Content,
+  type ImageField,
+  isFilled,
+  type LinkField,
+  type RichTextField,
+} from "@prismicio/client"
+import { PrismicNextImage, PrismicNextLink } from "@prismicio/next"
+import type { SliceComponentProps } from "@prismicio/react"
 
 import { Bounded } from "@/components/Bounded"
-import { Heading } from "@/components/Heading"
 import { PrismicRichText } from "@/components/PrismicRichText"
-
-const components: JSXMapSerializer = {
-  heading1: ({ children }: { children: ReactNode }) => (
-    <Heading as="h2" size="xl" className="mb-4 mt-12 first:mt-0 last:mb-0">
-      {children}
-    </Heading>
-  ),
-}
+import AuroraBackground from "@/components/aurora-background"
 
 type HeroProps = SliceComponentProps<Content.HeroSlice>
 
@@ -32,32 +29,26 @@ const Hero = ({ slice }: HeroProps) => {
   const buttonText = slice.primary.buttonText as string | null | undefined
 
   return (
-    <section className="relative overflow-hidden bg-slate-900 text-white">
+    <section className="relative overflow-hidden bg-neutral text-neutral-content">
       {isFilled.image(backgroundImage) && (
-        <Parallax>
-          <PrismicNextImage
-            field={backgroundImage}
-            alt=""
-            fill={true}
-            className="pointer-events-none h-full w-full select-none object-cover opacity-50"
-          />
-        </Parallax>
+        <AuroraBackground>
+          <Bounded yPadding="lg" className="relative">
+            <div className="flex flex-col items-center gap-8">
+              <div className="prose prose-xl prose-neutral mx-auto max-w-2xl text-balance dark:prose-invert prose-headings:text-neutral-content prose-p:text-neutral-content">
+                <PrismicRichText field={text} />
+              </div>
+              {isFilled.link(link) && (
+                <PrismicNextLink
+                  field={link}
+                  className="btn btn-outline btn-primary"
+                >
+                  {buttonText || "Learn More"}
+                </PrismicNextLink>
+              )}
+            </div>
+          </Bounded>
+        </AuroraBackground>
       )}
-      <Bounded yPadding="lg" className="relative">
-        <div className="grid justify-items-center gap-8">
-          <div className="max-w-2xl text-center">
-            <PrismicRichText field={text} components={components} />
-          </div>
-          {isFilled.link(link) && (
-            <PrismicNextLink
-              field={link}
-              className="rounded bg-white px-5 py-3 font-medium text-slate-800"
-            >
-              {buttonText || "Learn More"}
-            </PrismicNextLink>
-          )}
-        </div>
-      </Bounded>
     </section>
   )
 }

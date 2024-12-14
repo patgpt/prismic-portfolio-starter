@@ -5,6 +5,8 @@ import { PrismicImage, SliceZone } from "@prismicio/react"
 import { createClient } from "@/prismicio"
 import { components } from "@/slices"
 import { PrismicRichText } from "@/components/PrismicRichText"
+import { isFilled } from "@prismicio/client"
+import { PrismicNextImage } from "@prismicio/next"
 
 type Params = { uid: string }
 
@@ -20,10 +22,12 @@ export default async function Page({ params }: { params: Promise<Params> }) {
       <h1 className="mb-4 text-3xl text-primary sm:mb-6 sm:text-4xl lg:text-5xl">
         {page.data.title}
       </h1>
-      <PrismicImage
-        className="mx-auto w-full max-w-sm rounded-lg shadow-md"
-        field={page.data.company_logo}
-      />
+      {isFilled.image(page.data.company_logo) && (
+        <PrismicNextImage
+          className="mx-auto w-full max-w-sm rounded-lg shadow-md"
+          field={page.data.company_logo}
+        />
+      )}
       <h3 className="mt-4 text-xl text-secondary sm:text-2xl">
         {page.data.company_name}
       </h3>

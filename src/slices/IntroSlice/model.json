@@ -1,0 +1,48 @@
+{
+  "id": "intro_slice",
+  "type": "SharedSlice",
+  "name": "IntroSlice",
+  "description": "IntroSlice",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "pfp": {
+          "type": "Image",
+          "config": {
+            "label": "PFP",
+            "constraint": {
+              "width": 400,
+              "height": 400
+            },
+            "thumbnails": []
+          }
+        },
+        "intro_heading_text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Intro Heading Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading2"
+          }
+        },
+        "intro_subheading_text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Intro Subheading Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading3"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

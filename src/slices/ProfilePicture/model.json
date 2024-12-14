@@ -1,0 +1,30 @@
+{
+  "id": "profile_picture",
+  "type": "SharedSlice",
+  "name": "ProfilePicture",
+  "description": "ProfilePicture",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "profile_picture": {
+          "type": "Image",
+          "config": {
+            "label": "Profile Picture",
+            "constraint": {
+              "width": 400,
+              "height": 400
+            },
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

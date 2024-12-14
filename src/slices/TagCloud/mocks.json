@@ -15,10 +15,10 @@
 						"__TYPE__": "GroupItemContent",
 						"value": [
 							[
-								"tags",
+								"tag",
 								{
 									"__TYPE__": "FieldContent",
-									"value": "Flutter",
+									"value": "WordPress",
 									"type": "Select"
 								}
 							]

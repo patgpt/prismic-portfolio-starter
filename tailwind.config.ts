@@ -2,7 +2,9 @@ import type { Config } from "tailwindcss"
 import typography from "@tailwindcss/typography"
 import aspectRatio from "@tailwindcss/aspect-ratio"
 import daisyUI from "daisyui"
+import animate from "tailwindcss-animate"
 const config: Config = {
+  darkMode: ["class"],
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -13,9 +15,23 @@ const config: Config = {
     fontFamily: {
       sans: 'var(--font-sans), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
     },
-    extend: {},
+    extend: {
+      animation: {
+        aurora: "aurora 60s linear infinite",
+      },
+      keyframes: {
+        aurora: {
+          from: {
+            backgroundPosition: "50% 50%, 50% 50%",
+          },
+          to: {
+            backgroundPosition: "350% 50%, 350% 50%",
+          },
+        },
+      },
+    },
   },
-  plugins: [typography, aspectRatio, daisyUI],
+  plugins: [typography, aspectRatio, daisyUI, animate, addVariablesForColors],
   daisyui: {
     themes: true, // false: only light + dark | true: all themes | array: specific themes like this ["light", "dark", "cupcake"]
     darkTheme: "dark", // name of one of the included themes for dark mode
@@ -29,3 +45,16 @@ const config: Config = {
 }
 
 export default config
+const {
+  default: flattenColorPalette,
+} = require("tailwindcss/lib/util/flattenColorPalette")
+function addVariablesForColors({ addBase, theme }: any) {
+  let allColors = flattenColorPalette(theme("colors"))
+  let newVars = Object.fromEntries(
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val]),
+  )
+
+  addBase({
+    ":root": newVars,
+  })
+}

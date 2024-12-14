@@ -1,15 +1,8 @@
-import { Content } from "@prismicio/client"
+import { asText, Content } from "@prismicio/client"
 import { SliceComponentProps } from "@prismicio/react"
 import type { JSX } from "react"
 
-/**
- * Props for `TagCloud`.
- */
-export type TagCloudProps = SliceComponentProps
-
-/**
- * Component for "TagCloud" Slices.
- */
+type TagCloudProps = SliceComponentProps<Content.TagCloudSlice>
 const TagCloud = ({ slice }: TagCloudProps): JSX.Element => {
   return (
     <section
@@ -21,12 +14,12 @@ const TagCloud = ({ slice }: TagCloudProps): JSX.Element => {
           {slice.primary.title}
         </h2>
         <div className="mt-4 flex flex-wrap justify-center gap-4">
-          {slice.primary.tags.map((tag, index) => (
+          {slice.primary.tags.map((item, index) => (
             <span
               key={index}
-              className="rounded-full bg-primary px-4 py-2 text-white"
+              className="rounded-full bg-gray-100 px-4 py-2 text-sm text-gray-800"
             >
-              {tag}
+              {item.tag}
             </span>
           ))}
         </div>

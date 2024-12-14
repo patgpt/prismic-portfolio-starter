@@ -25,10 +25,10 @@
             "label": "Tags",
             "repeat": true,
             "fields": {
-              "tags": {
+              "tag": {
                 "type": "Select",
                 "config": {
-                  "label": "Tags",
+                  "label": "Tag",
                   "placeholder": "",
                   "options": [
                     "Adobe XD",

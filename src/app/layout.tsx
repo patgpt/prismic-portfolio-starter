@@ -1,6 +1,6 @@
 import { PrismicPreview } from "@prismicio/next"
-import "./globals.css"
 import { Metadata } from "next"
+import "./globals.css"
 
 import { fontSans } from "@/app/fonts"
 import Footer from "@/components/Footer"
@@ -35,10 +35,13 @@ export default async function RootLayout({
           enableColorScheme={true}
           disableTransitionOnChange
         >
-          <Header />
-          {children}
-          <Footer />
-          <PrismicPreview repositoryName={repositoryName} />
+          <div className="min-h-screen bg-base-100 transition-colors">
+            <Header />
+
+            {children}
+            <Footer />
+            <PrismicPreview repositoryName={repositoryName} />
+          </div>
         </ThemeProvider>
       </body>
     </html>

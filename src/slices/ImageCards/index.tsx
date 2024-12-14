@@ -1,18 +1,18 @@
-import { type Content, isFilled } from "@prismicio/client";
-import { PrismicText, type SliceComponentProps } from "@prismicio/react";
-import { PrismicNextLink, PrismicNextImage } from "@prismicio/next";
+import { type Content, isFilled } from "@prismicio/client"
+import { PrismicText, type SliceComponentProps } from "@prismicio/react"
+import { PrismicNextLink, PrismicNextImage } from "@prismicio/next"
 
-import { Bounded } from "@/components/Bounded";
-import { Heading } from "@/components/Heading";
-import { ConditionalWrap } from "@/components/ConditionalWrap";
-import { PrismicRichText } from "@/components/PrismicRichText";
+import { Bounded } from "@/components/Bounded"
+import { Heading } from "@/components/Heading"
+import { ConditionalWrap } from "@/components/ConditionalWrap"
+import { PrismicRichText } from "@/components/PrismicRichText"
 
 type ImageCardProps = {
-  card: Content.ImageCardsSliceDefaultPrimaryCardsItem;
-};
+  card: Content.ImageCardsSliceDefaultPrimaryCardsItem
+}
 
 const ImageCard = ({ card }: ImageCardProps) => {
-  const image = card.image;
+  const image = card.image
 
   return (
     <li className="grid gap-8">
@@ -41,10 +41,10 @@ const ImageCard = ({ card }: ImageCardProps) => {
         </div>
       )}
     </li>
-  );
-};
+  )
+}
 
-type ImageCardsProps = SliceComponentProps<Content.ImageCardsSlice>;
+type ImageCardsProps = SliceComponentProps<Content.ImageCardsSlice>
 
 const ImageCards = ({ slice }: ImageCardsProps) => {
   return (
@@ -62,7 +62,7 @@ const ImageCards = ({ slice }: ImageCardsProps) => {
         </ul>
       </div>
     </Bounded>
-  );
-};
+  )
+}
 
-export default ImageCards;
+export default ImageCards

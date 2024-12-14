@@ -87,15 +87,57 @@
           "allowText": true
         }
       },
+      "tagcloud": {
+        "type": "Group",
+        "config": {
+          "label": "TagCloud",
+          "repeat": true,
+          "fields": {
+            "tag": {
+              "type": "Select",
+              "config": {
+                "label": "Tag",
+                "placeholder": "",
+                "options": [
+                  "Adobe Target",
+                  "Adobe XD",
+                  "UX",
+                  "Google Tag Manager",
+                  "Google Analytics",
+                  "Optimizely",
+                  "Javascript",
+                  "Typescript",
+                  "Next.js",
+                  "Vue.js",
+                  "React.js",
+                  "Flutter",
+                  "Dart",
+                  "Agile",
+                  "Scrum",
+                  "Storybook",
+                  "Contentful",
+                  "Prismic",
+                  "AWS",
+                  "Google Cloud Platform",
+                  "i18n",
+                  "a11y",
+                  "HTML",
+                  "CSS",
+                  "Docker",
+                  "Jest",
+                  "Playwrite",
+                  "e2e Testing"
+                ]
+              }
+            }
+          }
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {
-            "tag_cloud": {
-              "type": "SharedSlice"
-            }
-          }
+          "choices": {}
         }
       }
     },
